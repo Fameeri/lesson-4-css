@@ -1,0 +1,262 @@
+/* Basic page styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+/* Main grid layout */
+.blog-layout {
+    display: grid;
+    grid-template-areas: 
+        "header  header  header"
+        "main    main    sidebar"
+        "main    main    sidebar"
+        "comments comments ."
+        "footer  footer  footer";
+    grid-template-columns: 1fr 1fr 300px;
+    grid-template-rows: auto 1fr auto auto auto;
+    min-height: 100vh;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Assign grid areas */
+.site-header { 
+    grid-area: header;
+    background-color: bisque;
+    padding: 20px;
+    font-size: 1.5rem;
+    font-weight: 1.5rem;
+    text-align: center;
+
+   
+}
+
+.main-content { 
+    grid-area: main;
+    background-color: #d86767;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.sidebar { 
+    grid-area: sidebar;
+    background-color: #aceaae;
+    padding: 20px;
+    font-size: 0.9rem;
+}
+
+.comments { 
+    grid-area: comments;
+   background-color: #7a8bce;
+   padding: 20px;
+   border-top: 1px solid #8b668c;
+}
+
+.site-footer { 
+    grid-area: footer;
+    background-color: #eaeaea;
+    padding: 15px;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+/* Header styling */
+.site-header {
+    background: #333;
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.header-content {
+    /* Use Flexbox inside Grid area */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.main-nav a:hover {
+    color: #ccc;
+}
+
+/* Main content styling */
+.main-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.blog-post h2 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+}
+
+.post-meta {
+    color: #666;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.blog-post h3 {
+    color: #34495e;
+    margin: 2rem 0 1rem 0;
+}
+
+.blog-post p {
+    margin-bottom: 1.5rem;
+}
+
+/* Sidebar styling */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.sidebar section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.author-details {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.author-details img {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+
+.related-posts ul {
+    list-style: none;
+}
+
+.related-posts li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.related-posts a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.related-posts a:hover {
+    text-decoration: underline;
+}
+
+/* Comments styling */
+.comments {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.comment {
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.comment:last-child {
+    border-bottom: none;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.comment-date {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Footer styling */
+.site-footer {
+    background: #2c3e50;
+    color: rgb(172, 202, 169);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-links a {
+    color: #7f96a6;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: rgb(93, 63, 63);
+}
+
+
+/* Mobile layout */
+@media (max-width: 768px) {
+    .blog-layout {
+        grid-template-areas:
+            "header"
+            "main"
+            "sidebar"
+            "comments"
+            "footer";
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .main-nav {
+        justify-content: center;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
